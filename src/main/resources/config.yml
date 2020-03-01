@@ -1,0 +1,76 @@
+websocket:
+  enabled: false
+  uri: "ws://localhost:8000/ws/einsatzmonitor/?token=abcd1234"
+
+fe2:
+  uri: "http://192.168.178.10:83/"
+
+emoji:
+  # General icons
+  # Feuer
+  - icon: '🔥'
+    color: '#ff0000'
+    strings:
+      - name: 'F'
+        type: 'startswith'
+      - name: 'BMA'
+        type: 'startswith'
+
+  # Zahnrad + blau
+  - icon: '⚙'
+    color: '#4295f5'
+    strings:
+      - name: 'TH'
+        type: 'startswith'
+
+  # Zahnrad + gold
+  - icon: '⚙'
+    color: '#ffc400'
+    strings:
+      - name: 'GEF'
+        type: 'startswith'
+
+  # Zahnrad + lila
+  - icon: '⚙'
+    color: '#7647a2'
+    strings:
+      - name: 'SON'
+        type: 'startswith'
+
+  - icon: '✨'
+    color: '#1dba0b'
+    strings:
+      - name: 'UEB'
+        type: 'startswith'
+
+  # More specific icons
+  - icon: '🌳'
+    color: ''
+    strings:
+      - name: 'Baum'
+        type: 'contains'
+
+  - icon: '🌊'
+    color: ''
+    strings:
+      - name: 'Wasser'
+        type: 'contains'
+
+  - icon: '🛢'
+    color: ''
+    strings:
+      - name: 'Gefahrstoff'
+        type: 'contains'
+
+addressMapping:
+  # Standardmäßig wird immer die Einheit "ff-beispiel" alarmiert
+  defaultAddress: 'ff-beispiel'
+  defaultMessage: 'Einsatzalarm FF-Beispiel'
+
+  mappings:
+    # Alarm für Einheit "elw2", wenn mindestens eine der Einheiten im einsatz json vorkommt
+    - address: 'elw2'
+      message: 'Einsatzalarm ELW2'
+      units:
+        - 'ELW 2'
+        - 'FZ ELW2'
