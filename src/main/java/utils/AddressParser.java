@@ -28,11 +28,13 @@ public class AddressParser {
         mappings.forEach(mapping -> {
             List<String> mappedUnits = mapping.units;
 
-            units.forEach(unit -> {
-                if (mappedUnits.contains(unit)) {
-                    setResultAddress(mapping.address);
-                    setResultMessage(mapping.message);
-                }
+            mappedUnits.forEach(mappedUnit -> {
+                units.forEach(unit -> {
+                    if (unit.contains(mappedUnit)) {
+                        setResultAddress(mapping.address);
+                        setResultMessage(mapping.message);
+                    }
+                });
             });
         });
     }

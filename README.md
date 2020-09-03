@@ -1,7 +1,7 @@
 # EinsatzBridge
 
 [![Issues](https://img.shields.io/github/issues/Finn0811/EinsatzBridge?style=flat-square)](https://img.shields.io/github/issues/Finn0811/EinsatzBridge?style=flat-square)
-[![Issues](https://img.shields.io/github/stars/Finn0811/EinsatzBridge)](https://img.shields.io/github/stars/Finn0811/EinsatzBridge)
+[![Issues](https://img.shields.io/github/stars/Finn0811/EinsatzBridge?style=flat-square)](https://img.shields.io/github/stars/Finn0811/EinsatzBridge)
 
 Diese simple Java-Anwendung empfängt Einsätze als json Objekt über ein Websocket-Event und sendet sie an den [Alamos FE2-Server](https://www.alamos-gmbh.com/service/fe2/).
 
