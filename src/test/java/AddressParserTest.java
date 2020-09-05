@@ -1,7 +1,11 @@
 import config.Config;
+import config.address.AddressMappingConfig;
+import config.address.Mapping;
+import org.junit.Before;
 import org.junit.Test;
 import utils.AddressParser;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,20 +15,34 @@ import static org.junit.Assert.assertEquals;
  * Created by Finn on 03.09.2020.
  */
 public class AddressParserTest {
-    private Config config;
+    private final Config config = new Config();
 
-    private void loadConfig() {
-        ConfigManager configManager = new ConfigManager();
-        configManager.saveDefaultConfig(EinsatzBridge.class.getResourceAsStream("config.yml"));
-        configManager.loadConfig();
+    @Before
+    public void loadConfig() {
+        AddressMappingConfig addressMappingConfig = new AddressMappingConfig();
 
-        this.config = configManager.getConfig();
+        addressMappingConfig.defaultAddress = "ff-beispiel";
+        addressMappingConfig.defaultMessage = "Einsatzalarm FF-Beispiel";
+
+        ArrayList<Mapping> mappings = new ArrayList<>();
+
+        Mapping mapping = new Mapping();
+        mapping.address = "fz-elw2";
+        mapping.message = "Einsatzalarm ELW2";
+
+        List<String> units = new LinkedList<>();
+        units.add("ELW 2");
+        units.add("FZ ELW2");
+        mapping.units = units;
+
+        mappings.add(mapping);
+        addressMappingConfig.mappings = mappings;
+
+        config.addressMapping = addressMappingConfig;
     }
 
     @Test
     public void testAddressParser() {
-        this.loadConfig();
-
         List<String> vehicles = new LinkedList<>();
         vehicles.add("TE FF Testfeuerwehr voll");
 
@@ -37,8 +55,6 @@ public class AddressParserTest {
 
     @Test
     public void testAddressParserOther() {
-        this.loadConfig();
-
         List<String> vehicles = new LinkedList<>();
         vehicles.add("TE KFB FZ ELW2");
         vehicles.add("TE 00-00-1 ELW 2 Kreisfeuerwehr");
