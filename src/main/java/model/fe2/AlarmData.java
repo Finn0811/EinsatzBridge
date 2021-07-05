@@ -4,6 +4,7 @@ package model.fe2;
  * Created by Finn on 31.01.2020.
  */
 public class AlarmData {
+    private String einsatznr;
     private String keyword;
     private String keyword_description;
     private String keyword_category;
@@ -122,5 +123,13 @@ public class AlarmData {
 
     public void setKeyword_color(String keyword_color) {
         this.keyword_color = keyword_color;
+    }
+
+    public String getEinsatznr() {
+        return einsatznr;
+    }
+
+    public void setEinsatznr(String einsatznr) {
+        this.einsatznr = einsatznr;
     }
 }

@@ -64,6 +64,7 @@ public class EinsatzWebsocketClient extends WebSocketClient {
             alarm.setType("ALARM");
 
             AlarmData data = new AlarmData();
+            data.setEinsatznr(operation.getEinsatznr());
             data.setKeyword(operation.getStichwort());
             data.setKeyword_description(operation.getDescription());
 

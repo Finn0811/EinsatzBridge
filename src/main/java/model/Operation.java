@@ -6,6 +6,7 @@ import java.util.List;
  * Created by Finn on 24.01.2020.
  */
 public class Operation {
+    private String einsatznr;
     private int id;
     private String stichwort;
     private String description;
@@ -86,5 +87,13 @@ public class Operation {
 
     public void setZusatzinfos(List<Zusatzinfo> zusatzinfos) {
         this.zusatzinfos = zusatzinfos;
+    }
+
+    public String getEinsatznr() {
+        return einsatznr;
+    }
+
+    public void setEinsatznr(String einsatznr) {
+        this.einsatznr = einsatznr;
     }
 }
